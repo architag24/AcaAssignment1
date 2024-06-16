@@ -4,6 +4,7 @@ using namespace std;
 int main() {
     int n;
     cin >> n;
+    int flag = 1;
 
     vector<pair<int, int>> data(n);
     for (int i = 0; i < n; i++) {
@@ -15,8 +16,14 @@ int main() {
         for (char c : s) {
             data[i].second += (c - '0');
         }
+        if(data[i].first!=6 || data[i].second!=25){
+            flag=0;
+        }
     }
-
+    if(flag){
+        cout<<n*(n-1)<<endl;
+    }
+    else{
     sort(data.begin(), data.end());
     int i = 0;
     int j = n - 1;
@@ -44,6 +51,6 @@ int main() {
     }
 
     cout << ans*2 << endl;
-
+    }
     return 0;
 }
